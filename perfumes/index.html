@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Perfumes · El Hub</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 2rem auto;
+    }
+    .product-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 15px;
+      overflow: hidden;
+      transition: transform 0.3s;
+    }
+    .product-card:hover { transform: translateY(-5px); }
+    .product-img {
+      width: 100%;
+      height: 250px;
+      object-fit: cover;
+      background: #1e293b; /* Placeholder por si no hay foto */
+    }
+    .product-info { padding: 1.5rem; }
+    .price {
+      display: block;
+      font-size: 1.5rem;
+      color: var(--primary);
+      font-weight: 700;
+      margin: 0.5rem 0;
+    }
+    .btn-add {
+      width: 100%;
+      padding: 10px;
+      background: var(--primary);
+      color: var(--bg);
+      border: none;
+      border-radius: 8px;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    /* Carrito Flotante */
+    .cart-summary {
+      position: fixed;
+      bottom: 25px;
+      left: 25px;
+      background: var(--card);
+      border: 1px solid var(--primary);
+      padding: 15px;
+      border-radius: 12px;
+      display: none; /* Se muestra con JS */
+      z-index: 100;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <a href="/" style="color: var(--primary); text-decoration: none;">← Volver al Hub</a>
+  <h1>Catálogo de Fragancias</h1>
+  <p>Selección premium de Sibatoc</p>
+</header>
+
+<div class="gallery">
+  <div class="product-card">
+    <img src="/img/perfume1.jpg" alt="Fragancia Alpha" class="product-img">
+    <div class="product-info">
+      <h2>Fragancia Alpha</h2>
+      <p>Notas de madera, sándalo y un toque cítrico.</p>
+      <span class="price">$25.990</span>
+      <button class="btn-add" onclick="addToCart('Fragancia Alpha', 25990)">Añadir al Carrito</button>
+    </div>
+  </div>
+
+  <div class="product-card">
+    <img src="/img/perfume2.jpg" alt="Fragancia Luna" class="product-img">
+    <div class="product-info">
+      <h2>Fragancia Luna</h2>
+      <p>Esencia floral con base de vainilla y jazmín.</p>
+      <span class="price">$22.500</span>
+      <button class="btn-add" onclick="addToCart('Fragancia Luna', 22500)">Añadir al Carrito</button>
+    </div>
+  </div>
+</div>
+
+<div id="cart-ui" class="cart-summary">
+  <strong>Pedido: <span id="cart-count">0</span> items</strong><br>
+  <span>Total: $<span id="cart-total">0</span></span><br>
+  <button onclick="sendWhatsApp()" style="margin-top:10px; background:#25d366; color:white; border:none; padding:5px 10px; border-radius:5px;">
+    Pedir por WhatsApp
+  </button>
+</div>
+
+<script>
+  let cart = [];
+  
+  function addToCart(name, price) {
+    cart.push({name, price});
+    updateUI();
+  }
+
+  function updateUI() {
+    const ui = document.getElementById('cart-ui');
+    const count = document.getElementById('cart-count');
+    const total = document.getElementById('cart-total');
+    
+    if (cart.length > 0) ui.style.display = 'block';
+    count.innerText = cart.length;
+    total.innerText = cart.reduce((sum, item) => sum + item.price, 0).toLocaleString('es-CL');
+  }
+
+  function sendWhatsApp() {
+    const number = "56994955222"; // TU NÚMERO AQUÍ
+    let message = "Hola El Hub! Me gustaría encargar:\n";
+    cart.forEach(item => message += `- ${item.name} ($${item.price})\n`);
+    const total = cart.reduce((sum, item) => sum + item.price, 0);
+    message += `*Total: $${total.toLocaleString('es-CL')}*`;
+    
+    window.open(`https://wa.me/${number}?text=${encodeURIComponent(message)}`);
+  }
+</script>
+
+</body>
+</html>
