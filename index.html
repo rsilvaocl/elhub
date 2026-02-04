@@ -3,11 +3,56 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Sibatoc · Hub</title>
+  <title>Sibatoc · El Hub</title>
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/css/style.css">
   
+  <style>
+    /* Estilos adicionales para mejorar la experiencia */
+    .status-bar {
+      max-width: 1100px;
+      margin: -1.5rem auto 2rem;
+      display: flex;
+      justify-content: center;
+      gap: 15px;
+      font-size: 0.85rem;
+    }
+    .status-item {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      color: var(--muted);
+    }
+    .dot {
+      height: 8px;
+      width: 8px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      display: inline-block;
+      box-shadow: 0 0 8px #22c55e;
+    }
+    .whatsapp-float {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25d366;
+      color: white;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.4);
+      z-index: 100;
+      transition: transform 0.3s;
+    }
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
 
@@ -16,23 +61,29 @@
   <p>Portal central de servicios y aplicaciones</p>
 </header>
 
+<div class="status-bar">
+  <div class="status-item"><span class="dot"></span> Servidores Online</div>
+  <div class="status-item"><span class="dot"></span> Netlify Deploy OK</div>
+  <div class="status-item"><span class="dot" style="background:#38bdf8; box-shadow: 0 0 8px #38bdf8;"></span> v2.1</div>
+</div>
+
 <section class="grid">
-  <a href="#" class="card">
+  <a href="/perfumes/" class="card">
     <div class="icon">🧴</div>
     <h2>Perfumes</h2>
     <p>Catálogo y gestión de productos relacionados con perfumería.</p>
   </a>
 
-  <a href="#" class="card">
+  <a href="/fotos/" class="card">
     <div class="icon">📸</div>
     <h2>Servicios Fotográficos</h2>
     <p>Fotografía profesional, eventos y portafolio visual.</p>
   </a>
 
-  <a href="#" class="card">
+  <a href="/it/" class="card">
     <div class="icon">💻</div>
     <h2>Servicios Informáticos</h2>
-    <p>Soporte técnico, desarrollo y soluciones IT.</p>
+    <p>Soporte técnico, automatización con PowerShell y soluciones IT.</p>
   </a>
 
   <a href="https://script.google.com/macros/s/AKfycbz4SnyyWx0X9I2mTkxIZp2aYZ56Nr5lAnM1gy8SaztNLWPW5Aa9v3sxBCtjd7NiDS8m/exec" 
@@ -44,10 +95,20 @@
     <h2>Tesorería App</h2>
     <p>Aplicación financiera interna. Se recomienda usar modo incógnito.</p>
   </a>
+
+  <div class="card" style="opacity: 0.8; cursor: default;">
+    <div class="icon">📊</div>
+    <h2>Monitor de Sistemas</h2>
+    <p>Estado de reportes de Active Directory y logs de Llama 2.1.</p>
+  </div>
 </section>
 
+<a href="https://wa.me/56994955222" class="whatsapp-float" target="_blank" rel="noopener">
+  <span role="img" aria-label="WhatsApp">💬</span>
+</a>
+
 <footer>
-  © <span id="year"></span> El Hub · Hub de servicios
+  © <span id="year"></span> El Hub · Portal de Servicio y Productos · <a href="https://github.com/rsilvaocl" style="color:inherit; text-decoration:none;">GitHub</a>
 </footer>
 
 <script>
