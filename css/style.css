@@ -107,6 +107,28 @@
       color: var(--muted);
       font-size: .85rem;
     }
+/* Quitar subrayado de todas las tarjetas link */
+.card {
+    text-decoration: none; /* Esto elimina la línea azul bajo el ícono y el texto */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
 
+/* Estilo específico para el ícono/emoji */
+.icon {
+    font-size: 3rem; /* Tamaño grande para el emoji */
+    margin-bottom: 1rem;
+    display: block;
+    line-height: 1;
+}
+
+/* Asegurar que el título no sea azul de link */
+.card h2 {
+    color: var(--text);
+    margin: 0.5rem 0;
+}
  
+
 
