@@ -1,41 +1,107 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fotografía · El Hub</title>
-    <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fotografía · EL Hub</title>
+  <link rel="stylesheet" href="/css/style.css">
+  <style>
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      max-width: 1100px;
+      margin: 2rem auto;
+    }
+
+    .service-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      transition: all 0.3s ease;
+    }
+
+    .img-box {
+      width: 100%;
+      height: 250px;
+      overflow: hidden;
+    }
+
+    .img-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s ease;
+    }
+
+    .service-card:hover .img-box img {
+      transform: scale(1.1);
+    }
+
+    .service-card:hover {
+      border-color: var(--primary);
+      transform: translateY(-5px);
+    }
+
+    .content { padding: 1.5rem; }
+
+    .btn-contact {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 10px 20px;
+      background: var(--primary);
+      color: #020617;
+      text-decoration: none;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <a href="/" style="color: var(--primary); text-decoration: none;">← Volver al Hub</a>
-        <h1>Servicios Fotográficos</h1>
-        <p>Capturando momentos, creando recuerdos</p>
-    </header>
 
-    <section class="grid">
-        <div class="card">
-            <div class="icon">📸</div>
-            <h2>Sesiones Exterior</h2>
-            <p>Retratos, sesiones familiares y de pareja en locaciones naturales.</p>
-        </div>
-        <div class="card">
-            <div class="icon">🏢</div>
-            <h2>Eventos</h2>
-            <p>Cobertura profesional para eventos corporativos y sociales.</p>
-        </div>
-        <div class="card">
-            <div class="icon">🖼️</div>
-            <h2>Edición Digital</h2>
-            <p>Retoque avanzado y post-producción de alta calidad.</p>
-        </div>
-    </section>
+<header>
+  <a href="/" style="color: var(--primary); text-decoration: none;">← Volver al Hub</a>
+  <h1>Servicios Fotográficos</h1>
+  <p>Capturando momentos con calidad profesional</p>
+</header>
 
-    <a href="https://wa.me/56994955222" 
-       style="position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; padding: 15px; border-radius: 50%; text-decoration: none; font-size: 24px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);">
-       💬
-    </a>
+<section class="photo-grid">
+  <div class="service-card">
+    <div class="img-box">
+      <img src="/img/sesion-retrato.jpg" alt="Retratos">
+    </div>
+    <div class="content">
+      <h2>Retratos & Book</h2>
+      <p>Sesiones individuales en exterior o estudio para perfiles profesionales o redes sociales.</p>
+      <a href="https://wa.me/56994955222?text=Hola! Me interesa una sesión de retratos" class="btn-contact">Consultar</a>
+    </div>
+  </div>
 
-    <footer>© 2026 El Hub · Fotografía</footer>
+  <div class="service-card">
+    <div class="img-box">
+      <img src="/img/evento-social.jpg" alt="Eventos">
+    </div>
+    <div class="content">
+      <h2>Eventos & Celebraciones</h2>
+      <p>Cobertura completa para cumpleaños, matrimonios y eventos corporativos.</p>
+      <a href="https://wa.me/56994955222?text=Hola! Me interesa cobertura para un evento" class="btn-contact">Cotizar</a>
+    </div>
+  </div>
+
+  <div class="service-card">
+    <div class="img-box">
+      <img src="/img/producto-foto.jpg" alt="Productos">
+    </div>
+    <div class="content">
+      <h2>Fotografía de Producto</h2>
+      <p>Fotos optimizadas para e-commerce y catálogos (ideal para perfumería).</p>
+      <a href="https://wa.me/56994955222?text=Hola! Me interesa fotos para mis productos" class="btn-contact">Ver más</a>
+    </div>
+  </div>
+</section>
+
+<footer>© 2026 EL Hub · Fotografía</footer>
+
 </body>
 </html>
