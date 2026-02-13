@@ -115,6 +115,32 @@
 <script>
   document.getElementById('year').textContent = new Date().getFullYear();
 </script>
-
+<script type="module">
+    import Chatbot from "https://cdn.jsdelivr.net/npm/flowise-embed/dist/web.js"
+    Chatbot.init({
+        chatflowid: "5552dde5-cc79-453a-b71b-e7e45f547ded",
+        apiHost: "https://rsilvao-elhub.hf.space", // Esta es la URL de tu Space
+        chatflowConfig: {
+            // Aquí puedes añadir configuraciones adicionales si las necesitas
+        },
+        theme: {
+            button: {
+                backgroundColor: "#38bdf8", // Color azul para combinar con tu barra de estado
+                right: 20,
+                bottom: 100, // Lo subimos un poco para que no tape el botón de WhatsApp
+                size: 60,
+                dragAndDrop: true,
+                iconColor: "white",
+            },
+            chatWindow: {
+                welcomeMessage: "¡Hola! Soy el asistente de El Hub. ¿En qué servicio puedo ayudarte hoy?",
+                backgroundColor: "#ffffff",
+                fontSize: 16,
+                title: "Asistente El Hub",
+                titleAvatarLink: "https://raw.githubusercontent.com/rsilvaocl/tu-repo/main/logo.png", // Pon tu logo aquí
+            }
+        }
+    })
+</script>
 </body>
 </html>
